@@ -1,0 +1,23 @@
+<div *ngIf="details$ | async as details" class="container my-3">
+    <h2 class="mb-3">{{details.Title}}</h2>
+    <div class="row">
+        <div class="col-4">
+            <img [src]="details.Poster">
+        </div>
+        <div class="col-8">
+            <b>Plot:</b> {{ details.Plot}}
+        </div>    
+    </div>
+    <div class="mt-2">
+        <b>Year:</b> {{ details.Year}}
+    </div>
+    <div class="mt-2">
+        <b>Type:</b> {{ details.Type}}
+    </div>
+    <div class="mt-2">
+        <b>Actors:</b> {{ details.Actors}}
+    </div>
+    <div class="mt-2">
+        <b>Language:</b> {{ details.Language}}
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h3>{{showFavorite ? 'Favorite movies' : 'Movies'}}</h3>
+        <button (click)="changeTable()" class="btn btn-secondary my-2"> 
+            {{showFavorite ? 'Go to all movies' : 'Go to favorite movies'}}
+        </button>
+    </div>
+    
+    <div *ngIf="!showFavorite; else favorite">
+        <app-list 
+            *ngIf="value$ | async as value" 
+            [value]="value"
+            (add)="addNew($event)" 
+            (delete)="delete($event)" 
+        ></app-list>
+    </div>
+    <ng-template #favorite>
+        <app-favorite 
+            *ngIf="value$ | async as value" 
+            [value]="value"
+            (delete)="delete($event)" 
+        ></app-favorite>
+    </ng-template>
+</div>
